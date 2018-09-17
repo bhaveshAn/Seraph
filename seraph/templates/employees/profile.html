@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="ui centered grid">
+  <div class="six wide computer eight wide tablet column">
+  <div class="ui segment">
+<form class="ui large form" method="post" action="{% url 'employees:profile' %}">
+  {% csrf_token %}
+  <h1 class="ui blue header center aligned" style="font-size: 30px;">User Profile</h1>
+      <div class="field">
+          <label for="username">Username :</label>
+          <input type="text" class="center-block form-control" disabled placeholder="{{ user.username }}" name="username">
+      </div>
+      <div class="field">
+          <label for="email">Email :</label>
+          <input type="text" class="center-block form-control" placeholder="{{ user.email }}" name="email">
+      </div>
+      <div class="field">
+          <label for="firstname">Firstname :</label>
+          <input type="text" class="center-block form-control" placeholder="{{ user.firstname }}" name="firstname">
+      </div>
+      <div class="field">
+          <label for="lastname">Lastname :</label>
+          <input type="text" class="center-block form-control" placeholder="{{ user.lastname }}" name="lastname">
+      </div>
+      <br>
+   {% if employee %}
+   <h1 class="ui blue header center aligned" style="font-size: 30px;">Employee Profile</h1>
+      <div class="field">
+          <label for="emailEmployee">Email :</label>
+          <input type="text" class="center-block form-control" disabled placeholder="{{ employee.email }}" name="emailEmployee">
+      </div>
+      <div class="field">
+          <label for="website">Website :</label>
+          <input type="text" class="center-block form-control" placeholder="{{ employee.website }}" name="website">
+      </div>
+      <div class="field">
+          <label for="headline">Headline :</label>
+          <input type="text" class="center-block form-control" placeholder="{{ employee.headline }}" name="headline">
+      </div>
+      <div class="field">
+          <label for="linkedin">LinkedIn :</label>
+          <input type="text" class="center-block form-control" placeholder="{{ employee.linkedin }}" name="linkedin">
+      </div>
+      <div class="field">
+        <label for="github">GitHub :</label>
+        <input type="text" class="center-block form-control" placeholder="{{ employee.github }}" name="github">
+      </div>
+      <div class="field">
+        <label for="twitter">Twitter :</label>
+        <input type="text" class="center-block form-control" placeholder="{{ employee.twitter }}" name="twitter">
+      </div>
+      <div class="field">
+        <label for="angelist">Angelist :</label>
+        <input type="text" class="center-block form-control" placeholder="{{ employee.angelist }}" name="angelist">
+      </div>
+      <div class="field">
+        <label for="blog">Blog :</label>
+        <input type="text" class="center-block form-control" placeholder="{{ employee.blog }}" name="blog">
+      </div>
+      <div class="field">
+        <label for="phone">Phone :</label>
+        <input type="text" class="center-block form-control" placeholder="{{ employee.phone }}" name="phone">
+      </div>
+      <div class="field">
+        <label for="skills">Skills :</label>
+        <textarea rows="4" cols="50" class="center-block form-control" placeholder="{{ employee.skills }}" name="skills"></textarea>
+      </div>
+      <div class="field">
+        <label for="achivements">Achivements :</label>
+        <textarea rows="4" cols="50" class="center-block form-control" placeholder="{{ employee.achivements }}" name="achivements"></textarea>
+      </div>
+      {% endif %}
+      <div class="field">
+        <button class="ui fluid primary large button" type="submit">Submit</button>
+      </div>
+    <input type="hidden" name="next" value="{{ next }}" />
+  </form><br>
+  </div>
+{% if companies %}
+<h1 class="ui blue header center aligned" style="font-size: 30px;">Admin Profile</h1><br>
+<div class="ui two column very ">
+        {% for company in companies%}
+        <a href="{% url 'companies:read' id=company.id %}"><h3 class="ui blue header center aligned" style="font-size: 20px;">
+        {{ company.name }}
+        </h3></a><br><br>        
+        {% endfor %}
+</div>
+{% endif %}
+</div></div>
+
+{% endblock %}

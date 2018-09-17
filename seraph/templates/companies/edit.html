@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="ui centered grid">
+  <div class="six wide computer eight wide tablet column">
+  <div class="ui segment">
+  <h1 class="ui blue header center aligned" style="font-size: 30px;">
+        {{ company.name }}
+  </h1>
+
+  <form class="ui large form" method="post" action="{% url 'companies:edit' id=company.id %}">
+  {% csrf_token %}
+      {% if request.user.is_superuser %}
+      <div class="field">
+          <label for="admin_email">Admin email :</label>
+          <input type="text" class="center-block form-control" placeholder="{{ company.admin }}" name="admin_email">
+      </div>
+      {% endif %}
+      <div class="field">
+          <label for="name">Name :</label>
+          <input type="text" class="center-block form-control" placeholder="{{ company.name }}" name="name">
+      </div>
+      <div class="field">
+          <label for="email">Email :</label>
+          <input type="text" class="center-block form-control" placeholder="{{ company.email }}" name="email">
+      </div>
+      <div class="field">
+          <label for="location">Location :</label>
+          <input type="text" class="center-block form-control" placeholder="{{ company.location }}" name="location">
+      </div>
+      <div class="field">
+          <label for="domain">Domain :</label>
+          <input type="text" class="center-block form-control" placeholder="{{ company.domain }}" name="domain">
+      </div>
+      <div class="field">
+          <label for="website">Website :</label>
+          <input type="text" class="center-block form-control" placeholder="{{ company.website }}" name="website">
+      </div>
+      <div class="field">
+          <label for="linkedin">LinkedIn :</label>
+          <input type="text" class="center-block form-control" placeholder="{{ company.linkedin }}" name="linkedin">
+      </div>
+      <div class="field">
+        <label for="github">GitHub :</label>
+        <input type="text" class="center-block form-control" placeholder="{{ company.github }}" name="github">
+      </div>
+      <div class="field">
+        <label for="twitter">Twitter :</label>
+        <input type="text" class="center-block form-control" placeholder="{{ company.twitter }}" name="twitter">
+      </div>
+      <div class="field">
+        <label for="angelist">Angelist :</label>
+        <input type="text" class="center-block form-control" placeholder="{{ company.angelist }}" name="angelist">
+      </div>
+      <div class="field">
+        <label for="blog">Blog :</label>
+        <input type="text" class="center-block form-control" placeholder="{{ company.blog }}" name="blog">
+      </div>
+      <div class="field">
+        <label for="phone">Phone :</label>
+        <input type="text" class="center-block form-control" placeholder="{{ company.phone }}" name="phone">
+      </div>
+      <div class="field">
+        <label for="achivements">Achivements :</label>
+        <input type="text" class="center-block form-control" placeholder="{{ company.achivements }}" name="achivements">
+      </div>
+      <div class="field">
+        <label for="addEmployees">Add Employees :</label>
+        <textarea rows="4" cols="50" class="center-block form-control" placeholder="Add space or comma separated user names" name="addEmployees"></textarea>
+      </div>
+      <div class="field">
+        <label for="removeEmployees">Remove Employees :</label>
+        <textarea rows="4" cols="50" class="center-block form-control" placeholder="Add space or comma separated user names" name="removeEmployees"></textarea>
+      </div>
+      <div class="field">
+        <button class="ui fluid primary large button" type="submit">Submit</button>
+      </div>
+    </div>
+
+    <input type="hidden" name="next" value="{{ next }}" />
+  </form>
+  </div>
+
+{% endblock %}

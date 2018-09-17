@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="ui container">
+  {% if user.is_superuser %}
+      <a href="{% url 'companies:new' %}"><h1 class="ui blue header center aligned" style="font-size: 50px;">Add New Company</h1></a><br><br>
+  {% endif %}
+  <div class="ui segment" style="padding: 50px;">
+    <div class="ui two column very grid  center aligned">
+        {% for company in companies %}
+        <div class="column">
+        <a href="{% url 'companies:read' id=company.id %}"><h1 class="ui blue header center aligned" style="font-size: 30px;">
+        {{ company.name }}
+        </h1></a>
+        {% if company.website %}
+        <h3 class="ui grey header center aligned">Website : {{ company.website }}</h3>
+        {% endif %}
+        
+        <h3 class="ui grey header center aligned">Email : {{ company.email }}</h3>
+      </div>
+      {% endfor %}
+      <br>
+      
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="ui centered grid">
+  <div class="six wide computer eight wide tablet column center aligned">
+
+  <h1 class="ui blue header center aligned" style="font-size: 50px;">
+        {{ company.name }}
+   </h1>
+
+  <div class="ui segment">
+  <div class="ui two column very ">
+
+        <h3 class="ui blue header center aligned" style="font-size: 20px;">
+        {{ company.email }}
+        </h3>
+        {% if company.admin %}
+        <h3 class="ui grey header center aligned">{{ company.admin.username }}</h3>
+        {% endif %}
+        {% if company.domain %}
+        <h3 class="ui grey header center aligned">{{ company.domain }}</h3>
+        {% endif %}
+        {% if company.achievements %}
+        <h3 class="ui grey header center aligned">{{ company.achievements }}</h3>
+        {% endif %}
+        {% if company.location %}
+        <h3 class="ui grey header center aligned">{{ company.loation }}</h3>
+        {% endif %}
+        {% if company.website %}
+        <h3 class="ui grey header center aligned">{{ company.website }}</h3>
+        {% endif %}
+        {% if company.linkedin %}
+        <h3 class="ui grey header center aligned">{{ company.linkedin }}</h3>
+        {% endif %}
+        {% if company.github %}
+        <h3 class="ui grey header center aligned">{{ company.github }}</h3>
+        {% endif %}
+        {% if company.angelist %}
+        <h3 class="ui grey header center aligned">{{ company.angelist }}</h3>
+        {% endif %}
+        {% if company.twitter %}
+        <h3 class="ui grey header center aligned">{{ company.twitter }}</h3>
+        {% endif %}
+        {% if company.blog %}
+        <h3 class="ui grey header center aligned">{{ company.blog }}</h3>
+        {% endif %}
+        {% if company.phone %}
+        <h3 class="ui grey header center aligned">{{ company.phone }}</h3>
+        {% endif %}
+    </div>
+  </div>
+  {% if request.user.is_superuser or company.admin == request.user %}
+  <div class="field">
+      <a href="{% url 'companies:edit' id=company.id %}">
+          <button class="ui submit primary button center aligned" type="submit">Edit</button>
+      </a>
+      <a href="{% url 'companies:delete' id=company.id %}">
+          <button class="ui submit primary button center aligned" type="submit">Delete</button>
+      </a>
+  </div>
+  {% endif %}
+
+</div></div>
+{% endblock %}

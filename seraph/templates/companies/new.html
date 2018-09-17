@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="ui centered grid">
+  <div class="six wide computer eight wide tablet column">
+
+  <h2>Company Registration</h2>
+
+<form class="ui large form {% if team_form.errors %}error{% endif %}" method="post" action="{% url 'companies:new' %}">
+{% csrf_token %}
+
+  <div class="ui segment">
+  {% for field in company_form %}
+    {% if field.errors %}
+      <div class="field error">
+        {{ field.label_tag }}
+        <span style="font-size:10px;">{{ field.errors.as_text }}</span>
+        {{ field }}
+      </div>
+    {% else %}
+      <div class="field">
+        {{ field.label_tag }}
+        {{ field }}
+      </div>
+    {% endif %}
+  {% endfor %}
+      <div class="field">
+          <label for="admin_email">Email :</label>
+          <input type="text" class="center-block form-control" placeholder="Enter Email for the Admin" name="admin_email">
+      </div>
+
+    <div class="field">
+      <button class="ui submit primary button" type="submit">Submit</button>
+    </div>
+  </div>
+</form>
+
+{% endblock %}

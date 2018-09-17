@@ -1,0 +1,30 @@
+{% if request.path == '/' %}
+<div class="ui inverted large fixed menu" style="background-color:#000;">
+{% else %}
+<div class="ui black inverted large fixed menu">
+{% endif %}
+  <div class="ui container">
+    <a href="/" class="item header">Seraph</a>
+    <a href="{% url 'companies:all' %}" class="item">Companies</a>
+    <a href="{% url 'employees:all' %}" class="item">Employees</a>
+    {% if user.is_admin %}
+      <a href="{% url 'admin:index' %}" class="item">Admin</a>
+    {% endif %}
+
+    <div class="right menu">
+    {% if user.is_authenticated %}
+      <a href="{% url 'employees:profile' %}" class="item">Profile</a>
+      <script type="text/javascript">
+        function removeMcqStorage() {
+          localStorage.removeItem("mcqs");
+          return true;
+        }
+      </script>
+      <a href="{% url 'employees:logout' %}" class="item" onclick="removeMcqStorage();">Logout</a>
+    {% else %}
+      <a href="{% url 'employees:register' %}" class="item">Register</a>
+      <a href="{% url 'employees:login' %}" class="item">Login</a>
+    {% endif %}
+    </div>
+  </div>
+</div>

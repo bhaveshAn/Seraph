@@ -1,0 +1,20 @@
+{
+    "name": "Seraph-List",
+    "description": "Programming contest platform",
+    "repository": "https://github.com/bhaveshAn/Seraph-List",
+    "addons": [],
+    "env": {
+        "SERAPH_PLATFORM": {
+            "description": "Set deployment platform for malvo",
+            "generator": "secret"
+        }
+    },
+    "buildpacks": [
+        {
+            "url": "heroku/python"
+        },
+        {
+            "url": "heroku/nodejs"
+        }
+    ]
+ }
