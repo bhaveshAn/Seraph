@@ -10,9 +10,20 @@ Where companies are built
 ```
 git clone https://github.com/bhaveshAn/Seraph.git
 cd Seraph
+
 virtualenv -p python3 venv
 source venv/bin/activate
+
 pip install -r requirements.txt
+
+npm install --global bower
+bower install
+
+python3 manage.py migrate
+
+python3 manage.py createsuperuser
+
+python3 manage.py runserver
 
 ```
 
