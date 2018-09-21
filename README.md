@@ -1,4 +1,4 @@
-<img src="https://github.com/bhaveshAn/Seraph-List/blob/master/seraph/static/images/seraph.png" alt="seraph" width="256" height="110" />
+<img src="https://github.com/bhaveshAn/Seraph-List/blob/master/seraph/static/images/seraph.png" alt="seraph" width="256" height="150" />
 
 # Seraph
 
