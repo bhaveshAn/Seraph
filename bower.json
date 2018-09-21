@@ -1,11 +1,11 @@
 {
   "name": "Seraph",
   "version": "0.0.0",
-  "homepage": "https://github.com/bhaeshAn/Seraph-List",
+  "homepage": "https://github.com/bhaveshAn/Seraph",
   "authors": [
     "Bhavesh Anand <bhaveshanand7@gmail.com>"
   ],
-  "description": "World of Comapnies and Employees",
+  "description": "Where companies are built",
   "main": "",
   "moduleType": [
     "globals"

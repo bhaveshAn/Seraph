@@ -1,11 +1,11 @@
 {
-    "name": "Seraph-List",
-    "description": "Programming contest platform",
-    "repository": "https://github.com/bhaveshAn/Seraph-List",
+    "name": "Seraph",
+    "description": "Where companies are built",
+    "repository": "https://github.com/bhaveshAn/Seraph",
     "addons": [],
     "env": {
         "SERAPH_PLATFORM": {
-            "description": "Set deployment platform for malvo",
+            "description": "Set deployment platform for seraph",
             "generator": "secret"
         }
     },

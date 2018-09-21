@@ -1,6 +1,6 @@
 {
     "name": "Seraph",
-    "description": "World of Companies and Employees",
+    "description": "Where companies are built",
     "engines": {
         "node": "4.1.1"
     },
@@ -12,7 +12,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/bhaveshAn/Seraph-List.git"
+        "url": "git+https://github.com/bhaveshAn/Seraph.git"
     },
     "cacheDirectories": ["node_modules", "seraph/static/lib"],
     "author": "bhaveshAn",
